@@ -1,0 +1,7 @@
+args <- commandArgs(trailingOnly = TRUE)
+cat(paste("R is opening the file", args[1]), "\n")
+f<-readLines(file(args[1], open="r"))
+cat(paste("and here's what is in it:"), "\n")
+cat(paste("----------------------------"), "\n")
+cat(f[1], "\n")
+cat(paste("----------------------------"), "\n")
