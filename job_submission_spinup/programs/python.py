@@ -1,2 +1,2 @@
 import sys
-print "Hello World from process: ", sys.argv[1]
+print("Hello World from process: ", sys.argv[1])
