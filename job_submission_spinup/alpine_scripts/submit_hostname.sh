@@ -2,7 +2,7 @@
 #SBATCH --nodes=1                       # Number of requested nodes
 #SBATCH --ntasks=1                      # Number of requested tasks
 #SBATCH --time=0:01:00                  # Max wall time
-#SBATCH --partition=amilan-ucb       # Specify Summit Haswell nodes
+#SBATCH --partition=amilan       # Specify Summit Haswell nodes
 #SBATCH --output=./output/hostname_%j.out        # Rename standard output file
 
 
