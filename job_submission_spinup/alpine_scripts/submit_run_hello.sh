@@ -3,7 +3,7 @@
 ## Slurm Directives
 #SBATCH --nodes=1
 #SBATCH --time=00:02:00
-#SBATCH --partition=amilan-ucb
+#SBATCH --partition=amilan
 #SBATCH --ntasks=4
 #SBATCH --job-name=lbPythonDemo
 #SBATCH --output=./output/loadbalance.%j.out
