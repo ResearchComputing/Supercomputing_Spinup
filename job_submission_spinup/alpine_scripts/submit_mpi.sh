@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --job-name="hello-mpi"
-#SBATCH --partition=amilan-ucb
+#SBATCH --partition=amilan
 #SBATCH --time=00:01:00
 #SBATCH --ntasks=4
 #SBATCH --nodes=1
