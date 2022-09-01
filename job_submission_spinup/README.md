@@ -1,4 +1,4 @@
-# Job Submission Tutorial
+# Job Scheduling Tutorial
 
 ## Introduction 
 
@@ -23,7 +23,7 @@ We'll start with a brief introduction to jobs and why they are necessary, descri
 
 High Performance Computing (HPC) systems are more often than not, environments where many users share/compete for the same resources. Because our HPC clusters are shared resources with many users trying to utilize available compute with their applications, we need a system to divide compute in a simple and fair system.
 
-CU Research Computing uses the resource management program SLURM (Simple Linux Utility for Resource Management) to manage resources. Through SLURM, users can request allotments of computer resources called "Jobs." Jobs are submitted to a queue where they will wait until resources become available and then run.
+CU Research Computing uses the resource management program SLURM (Simple Linux Utility for Resource Management) to manage resources. Through SLURM, users can request allotments of computer resources called "Jobs." Jobs are scheduled to a queue where they will wait until resources become available and then run.
 
 Through SLURM, users can request jobs in 2 way:
 
@@ -39,7 +39,7 @@ The primary method of running applications on Research Computing (and other HPC 
 
 Unlike running an application on your personal machine, you do not call the application you wish to run directly. Instead you create a job script that includes a call to your application. Job scripts are simply a set of resource requests and commands. When a job script is run, all the commands in the job script are executed on a compute node.
 
-__The primary advantage of a batch job is that you don't have to sit around waiting for resources to become available, just submit a job and wait for your results.__
+__The primary advantage of a batch job is that you don't have to sit around waiting for resources to become available, just schedule a job and wait for your results.__
 
 ### Interactive Jobs
 
@@ -48,7 +48,7 @@ As the name would imply, an interactive job is a job that allows users to intera
 __The primary advantage of an interactive job is that you get real-time access to a compute node. Do note that you will have to wait for resources to become available which can often take a long time.__ 
 
 
-## Example 1: Submit your first batch job 
+## Example 1: Schedule your first batch job 
 
 Most of our examples are batch jobs as these are the most common and often trickiest to get familiar with.
 
@@ -63,11 +63,11 @@ sbatch scripts/submit_test.sh
 ```
 :warning: Reminder, this example is meant to run on CU Research Computing's system :warning:
 
-Once you submit this job you should see a message in standard output (i.e. your terminal screen):
+Once you schedule this job you should see a message in standard output (i.e. your terminal screen):
 ```
 Submitted batch job <jobid>
 ```
-This lets you know that your job has been successfully submitted. Congrats! You just submitted your first job.
+This lets you know that your job has been successfully scheduled. Congrats! You just scheduled your first job.
 
 But what did this job actually do? Where did the output go?
 
@@ -91,7 +91,7 @@ This is a test of user <your_userid>
 
 ### Check the test job script:
 
-Great! You have successfully submitted your first job and checked the output! Now let's check how the heck the job script actually did this. You can open up the test script using your preferred text editor (`vim` or `nano` on RC systems).
+Great! You have successfully scheduled your first job and checked the output! Now let's check how the heck the job script actually did this. You can open up the test script using your preferred text editor (`vim` or `nano` on RC systems).
 
 Open up the test script and try to see if you can understand what's going on:
 ```
@@ -202,7 +202,7 @@ Things to keep in mind:
 - Your output will default to whatever directory you run your script from, so keep in mind where `/output` is in relation to where you want to run it from.
 - Is any software needed? If not, what should we have in the software section? 
 
-Once you feel like you have everything done, go ahead and submit it and see if you get the results you'd like. You can always check in the `/solutions` directory if you get stuck. 
+Once you feel like you have everything done, go ahead and schedule it and see if you get the results you'd like. You can always check in the `/solutions` directory if you get stuck. 
 
 ## Checking your jobs
 
@@ -257,7 +257,7 @@ $ module spider matlab   #Searches for matlab in module tree
 
 ## Example 3: Serial R code
 
-Next, we're going to submit a job that runs R on an R script. We're not going to worry too much about the R script itself (this is a job submission tutorial after all), but if you don't use R yourself think about how your own software would be run (we'll look at other examples later too).
+Next, we're going to schedule a job that runs R on an R script. We're not going to worry too much about the R script itself (this is a job submission tutorial after all), but if you don't use R yourself think about how your own software would be run (we'll look at other examples later too).
 
 This next job will run from a script that calls and runs the `R_program.R` script in the `/programs` directory.
 
@@ -265,14 +265,14 @@ This next job will run from a script that calls and runs the `R_program.R` scrip
 
 - Next, let's take a look at the job script with `vim scripts/submit_R.sh`. Note how R is loaded (in practice it's best to specify the version with something like `module load R/3.3.0` but that's not too important here).
 
-Your job here is just to make sure the output is going to the right place (remember, where you submit from matters), have the script change into the `/programs` directory (again note where you run it from), then run the R script. You can run an R script with `Rscript <script name>`.
+Your job here is just to make sure the output is going to the right place (remember, where you schedule from matters), have the script change into the `/programs` directory (again note where you run it from), then run the R script. You can run an R script with `Rscript <script name>`.
 
 If you get stuck, you can take a look at the solution at `solutions/answer_submit_R.sh`
 
 
 ## Example 4: Serial Matlab code
 
-Next, we'll create a job script from scratch that run's a serial matlab program and submit it.
+Next, we'll create a job script from scratch that run's a serial matlab program and schedule it.
 
 The instructions for this script are as follows:
 1) Name it `submit_matlab.sh` and put it in `/scripts` (or wherever you want, you now have the understanding to run jobs from wherever!).
@@ -369,7 +369,7 @@ There are a handful of other examples you can check out in the `/scripts` direct
 
 ## Interactive Browser Applications
 
-We'll finish off with some discussion on interactive browser applications. If you are new to linux, submitting jobs to an HPC system can be pretty indimidating and overwhelming. Many researchers don't want to learn an entire extra field and just want to get to their research! We have several browser based applications that give you the power to connect to a compute node straight away. The entire process of submitting a job is made easier (usually defaults are enough) and you can get onto your work.
+We'll finish off with some discussion on interactive browser applications. If you are new to linux, scheduling jobs on an HPC system can be pretty indimidating and overwhelming. Many researchers don't want to learn an entire extra field and just want to get to their research! We have several browser based applications that give you the power to connect to a compute node straight away. The entire process of scheduling a job is made easier (usually defaults are enough) and you can get onto your work.
 
 Do note that the cost of using these methods will limit your resources available to you, though often if you are programming interactively you don't need as many resources. 
 
