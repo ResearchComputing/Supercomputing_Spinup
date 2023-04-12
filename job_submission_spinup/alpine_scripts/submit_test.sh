@@ -3,7 +3,7 @@
 ## Directives
 #SBATCH --ntasks=1                               # Number of requested tasks
 #SBATCH --time=0:01:00                           # Max wall time
-#SBATCH --partition=amilan                   # Specify Summit Haswell nodes
+#SBATCH --partition=amilan                       # Specify Alpine Milan nodes
 #SBATCH --output=./output/test_%j.out            # Rename standard output file
 
 ## Software
