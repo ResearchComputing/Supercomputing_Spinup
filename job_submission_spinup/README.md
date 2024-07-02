@@ -104,7 +104,7 @@ You should see something like this:
 ## Directives
 #SBATCH --ntasks=1                      # Number of requested cores 
 #SBATCH --time=0:01:00                  # Max wall time
-#SBATCH --partition=shas-testing        # Specify Summit Haswell testing compute node
+#SBATCH --partition=atesting            # Specify amilan testing compute node
 #SBATCH --output=./output/test_%j.out   # Rename standard output file
 
 ## Software
@@ -155,7 +155,7 @@ More details on these 3 sections can be found at our [batch script docs](https:/
 So taking a look back at `scripts/submit_test.sh` we can see the different directives that were used, specifically:
 - `#SBATCH --ntasks=1` which requested 1 core
 - `#SBATCH --time=0:01:00` which requested a max time of 1 minute
-- `#SBATCH --partition=shas-testing` which requested a quick turn-around testing specific compute node
+- `#SBATCH --partition=atesting` which requested a quick turn-around testing specific compute node
 - `#SBATCH --output=test_%j.out` which requested an output file of the name `test_<jobid>.out` to be created in the `./output` directory
 
 We didn't request any software (we just purged software just in case), and we ran the linux `echo` command. We'll take a look at some more complex examples next!
@@ -174,7 +174,7 @@ This next example is going to involve you creating your own job script with the 
 
 - The job will run on 1 core of 1 node
 - We will request a 1 minute wall time
-- Run on the shas-testing partition
+- Run on the amilan testing partition
 - Set the output file to be named “sleep.%j.out” in the `/output` directory
 - Name your job “sleep”
 - Bonus: Email yourself when the job ends
@@ -286,7 +286,7 @@ matlab –nodisplay –nodesktop –r "matlab_tic;"
 4) The batch script should have the following parameters:
 - The job will run on 1 core of 1 node
 - We will request a 2 minute wall time
-- Run on the shas-testing partition
+- Run on the amilan testing partition
 - Set the output file to be named “matlab.%j.out”
 - Name your job “matlab”
 	- Bonus: Email yourself when the job ends
@@ -304,7 +304,7 @@ An example of what this might look like in practice is:
 #SBATCH --ntasks=4			# Number of requested cores
 #SBATCH --time=0:01:00			# Max walltime
 #SBATCH --qos=normal	      		# Specify QOS
-#SBATCH --partition=shas		# Specify Summit haswell nodes
+#SBATCH --amilan		        # Specify Summit haswell nodes
 #SBATCH --output=python_%j.out		# Output file name
 
 # purge all existing modules
@@ -338,20 +338,20 @@ You can request an interactive job by using the `sinteractive` command. Unlike t
 ```
 sinteractive --qos=interactive --time=00:10:00
 ```
-Go ahead and try this command from a `login` or `scompile` node. You will see the output:
+Go ahead and try this command from a `login` or `acompile` node. You will see the output:
 ```
 /usr/local/bin/sinteractive: waiting for job with ID <jobid> to start.
 ```
 Once the resources you requested become available, you will be logged into a compute node:
 ```
-<user>@shas1234:~$
+<user>@c3cpu-:~$
 ``` 
 From here, you can load in any module's you'd like, and run programs straight from the command line! Pretty neat, huh? You can try opening up an interactive python prompt with:
 ```
-<user>@shas1234:~ $ module load anaconda
-(base) <user>@shas1234:~ $ python --version
+<user>@c3cpu:~ $ module load anaconda
+(base) <user>@c3cpu:~ $ python --version
 Python 3.8.5
-(base) <user>@shas1234~ $ python
+(base) <user>@c3cpu~ $ python
 Python 3.8.5 (default, Sep  4 2020, 07:30:14) 
 [GCC 7.3.0] :: Anaconda, Inc. on linux
 Type "help", "copyright", "credits" or "license" for more information.
