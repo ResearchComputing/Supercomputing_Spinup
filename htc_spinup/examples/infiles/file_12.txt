@@ -1,1 +1,0 @@
-Hello world from file_12.txt
