@@ -9,3 +9,9 @@ Part 2 of this series will discuss the fundamentals of job submission. Topics wi
 In order to follow along with the hands-on component of this workshop, you’ll want to have a research computing account. If you need assistance with this, you can attend the RC Quick Byte - Getting a Research Computing Account, or attend CRDDS Office Hours. Additionally, we will hold Office Hours immediately following this training for any follow-up questions.
 
 * What is an RC Short Course?: An RC Short Course is a training that provides an in-depth understanding of a concept, system, or tool. You can expect to leave a "Short Course" with a solid grasp of the topic.
+
+--- 
+
+We aim to make our online resources accessible to everyone. 
+If you encounter any barriers in the materials contained in this repository, please report them through our support request form
+https://colorado.service-now.com/req_portal?id=ucb_sc_rc_form
